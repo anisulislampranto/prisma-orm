@@ -30,9 +30,16 @@ async function run() {
 
     // retrive all data
     const users = await prisma.user.findMany({
-        include: {
+        // include: {
+        //     posts: true,
+        //     profile: true
+        // },
+        select: {
             posts: true,
-            profile: true
+            profile: true,
+            id: true, 
+            name: true, 
+            email: true
         }
     })
 
