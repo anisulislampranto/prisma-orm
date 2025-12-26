@@ -5,7 +5,7 @@ async function main() {
     const user = await prisma.user.create({
         data: {
             name: 'Alice',
-            email: 'alice@prisma.io',
+            email: 'alicia@prisma.io',
             posts: {
                 create: {
                     title: 'Hello World',
