@@ -1,3 +1,4 @@
+import { make } from './node_modules/effect/src/Arbitrary';
 import { prisma } from "./lib/prisma";
 
 async function run() {
@@ -69,14 +70,28 @@ async function run() {
     // console.dir(updateUser, {depth: Infinity});
 
     // delete user
-    const deleteUser = await prisma.user.delete({
+    // const deleteUser = await prisma.user.delete({
+    //     where: {
+    //         id: 3
+    //     }
+    // })
+
+    // console.log(deleteUser);
+
+    const upsert = await prisma.user.upsert({
         where: {
-            id: 3
+            email: 'jkr@ph.com',
+        },
+        update: {
+            name: 'jhankar bro'
+        },
+        create: {
+            name: 'jhanakr',
+            email: 'jkr@ph.com'
         }
     })
 
-    console.log(deleteUser);
-
+    console.log('upsert', upsert);
 }
 
 run()
