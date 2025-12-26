@@ -10,15 +10,23 @@ async function run() {
 
     // console.log('created user', createUser);
 
-    const createPost = await prisma.post.create({
+    // const createPost = await prisma.post.create({
+    //     data: {
+    //         title: 'faruk bhai',
+    //         content: 'faruk@gn.com',
+    //         authorId: 1
+    //     }
+    // })
+
+    // console.log('created post', createPost);
+    const createProfile = await prisma.profile.create({
         data: {
-            title: 'faruk bhai',
-            content: 'faruk@gn.com',
-            authorId: 1
+            bio: 'web dev at ph',
+            userId: 1
         }
     })
 
-    console.log('created post', createPost);
+    console.log('created profile', createProfile);
 }
 
 run()
